@@ -1,0 +1,11 @@
+<%= simple_form_for @payment do |f| %>
+  <%= f.input :value %>
+  <%= f.input :tax_discount %>
+  <%= f.input :notes %>
+  <%= f.input :project_id, collection: current_user.projects, label_method: :name %>
+  <%= f.input :paid %>
+  <%= f.input :date_of_payment, as: :date, start_year: Date.today.year - 10,
+                              end_year: Date.today.year + 12,
+                              order: [:month, :year] %>
+  <%= f.button :submit %>
+<% end %>

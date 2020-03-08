@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome back, <%= current_user.user_name  %></h1>
+
+  <div class="payments-div container">
+    <% @payments.each do |payment|%>
+      <%= render 'components/payment_card', payment: payment  %>
+    <% end %>
+  </div>
+</div>
