@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   def index
-    @payments = current_user.payments
+    @payments = current_user.clients.last.payments
   end
 
   def new
