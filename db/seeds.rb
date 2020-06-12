@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+def time_rand from = 0.0, to = Time.now
+    Time.at(from + rand * (to.to_f - from.to_f))
+end
 
 puts "Cleaning Database"
 Client.destroy_all
@@ -25,6 +28,9 @@ project.save
       value: rand(1..10000),
       notes: 'Everything went well',
       paid: [true, false].sample,
-      date_of_payment: Date.now
+      date_of_payment: time_rand
     )
 end
+
+# defining random date
+
