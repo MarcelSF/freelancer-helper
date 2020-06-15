@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def index
     @payments = policy_scope(Payment)
-    authorize @payments
+
   end
 
   def new
