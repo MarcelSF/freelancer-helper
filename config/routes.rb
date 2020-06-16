@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'payments/index'
   devise_for :users
   root to: 'pages#home'
+  get '/facts', to: 'pages#facts', as: :facts
   resources :payments
   resources :clients do
     resources :projects
