@@ -1,7 +1,8 @@
 <div class="container">
   <%= simple_form_for @client do |f| %>
     <%= f.input :name, label: 'What is your client\'s name?'%>
-    <%= f.input :bio, label: 'Write a short description' %>
+    <%= f.input :description, label: 'What is this project about?' %>
+    %= f.input :client_id, collection: current_user.clients, label: "Chose the client" %>
     <%= f.button :submit, 'Add Client', class: 'btn btn-primary' %>
   <% end %>
 </div>
