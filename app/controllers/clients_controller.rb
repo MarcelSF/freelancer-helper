@@ -10,8 +10,10 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
+    @client.user = current_user
+    authorize @client
     if @client.save
-      redirect to new_payment_path
+      redirect_to new_payment_path
     else
       render :new
     end
@@ -20,6 +22,6 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-
+    params.require(:client).permit(:name, :bio)
   end
 end
