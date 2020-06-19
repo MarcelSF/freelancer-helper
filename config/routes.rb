@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/facts', to: 'pages#facts', as: :facts
   resources :payments
   resources :clients do
-    resources :projects
+    resources :projects, only: [:new, :create]
   end
+
+  resources :projects, only: [:index, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
