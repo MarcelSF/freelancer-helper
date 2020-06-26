@@ -10,10 +10,10 @@ gem 'rails', '6.0.3.1'
 gem 'redis'
 gem 'pundit'
 
-# chartkick and helpers
 
 gem 'chartkick'
 gem 'groupdate'
+# chartkick and helpers
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
