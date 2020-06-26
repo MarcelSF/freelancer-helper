@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def facts
+    @payments = policy_scope(Payment)
     # top clients (per revenue)
     # total revenue (per month/per year)
     # most productive work
