@@ -1,2 +1,3 @@
 <h2>Testing Chartkick</h2>
-<%= line_chart @payments.group_by_day { |u| u.created_at }%>
+<%= bar_chart @payments.group_by {|x| x.project.client }.sum {|x| x.value}%>
+<%=  %>
