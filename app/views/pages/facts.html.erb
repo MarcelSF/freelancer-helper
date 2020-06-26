@@ -1,2 +1,2 @@
 <h2>Testing Chartkick</h2>
-<%= line_chart @payments.group_by_day(:date_of_payment).count %>
+<%= line_chart @payments.group_by_day { |u| u.created_at }.count %>
