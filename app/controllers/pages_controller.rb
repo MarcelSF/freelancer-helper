@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     # total revenue (per month/per year)
     # most productive work
     # most reliable clients
-    # projected revenue
-    # Revenue spread across the year
+    # projected revenue (real payments)
+    # projected revenue (imagined monthly)
   end
 end
