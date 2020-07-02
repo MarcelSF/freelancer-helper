@@ -2,7 +2,7 @@
   <%= simple_form_for @project do |f| %>
     <%= f.input :name, label: 'Project name:'%>
     <%= f.input :description, label: 'Description:' %>
-    <%= f.input :client_id, collection: current_user.clients, label: "Who is the client for this project?" %>
+    <%= f.input :client_id, collection: current_user.clients, include_blank: false, include_hidden: false, label: "Who is the client for this project?" %>
     <%= f.button :submit, 'Create Project', class: 'btn btn-primary' %>
   <% end %>
 </div>
