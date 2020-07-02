@@ -1,7 +1,11 @@
 class PaymentsController < ApplicationController
   def index
     @payments = policy_scope(Payment)
+  end
 
+  def show
+    @project = Project.find(params[:id]).includes(:payments)
+    authorize @project
   end
 
   def new
@@ -12,7 +16,6 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     authorize @payment
-    @payment.user = current_user
     @payment.save
     redirect_to payments_path
   end
