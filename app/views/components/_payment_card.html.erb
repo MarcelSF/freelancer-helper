@@ -1,11 +1,13 @@
 <div class="payment-card">
   <div class="payment-infos my-5">
-    <div>
-      <h3>Payment number: <%= payment.id  %></h2>
+    <div class="payment-card-info">
+      <h5>Number: <%= payment.id  %></h5>
+      <h5>Payment from: <%= payment.project.client.name %></h5>
+      <h5>Project: <%=  payment.project.name%></h5>
+      <h5>Due date: <%= payment.date_of_payment %></h5>
+      <h5><%= payment.paid ? "Already paid" : "Not paid yet" %></h5>
       <p>Notes: <%= payment.notes %></p>
-      <h5>Date of payment: <%= payment.date_of_payment %></h3>
-      <h5><%= payment.paid ? "Already paid" : "Not paid yet" %></h3>
+      <h5 class="payment-value">Total: $<%= payment.value %></h5>
     </div>
-    <h2 class="payment-value"><%= payment.value %></h2>
   </div>
 </div>
