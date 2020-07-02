@@ -16,7 +16,6 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     authorize @payment
-    @payment.user = current_user
     @payment.save
     redirect_to payments_path
   end

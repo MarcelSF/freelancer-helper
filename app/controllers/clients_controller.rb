@@ -13,7 +13,7 @@ class ClientsController < ApplicationController
     @client.user = current_user
     authorize @client
     if @client.save
-      redirect_to new_payment_path
+      redirect_to new_project_path
     else
       render :new
     end

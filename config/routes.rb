@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :projects, only: [:new, :create]
   end
 
-  resources :projects, only: [:index, :edit, :update]
+  resources :projects, only: [:index, :new, :create, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
