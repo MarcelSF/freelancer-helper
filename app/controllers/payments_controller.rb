@@ -1,7 +1,11 @@
 class PaymentsController < ApplicationController
   def index
     @payments = policy_scope(Payment)
+  end
 
+  def show
+    @project = Project.find(params[:id]).includes(:payments)
+    authorize @project
   end
 
   def new
