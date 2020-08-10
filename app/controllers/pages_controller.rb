@@ -8,14 +8,17 @@ class PagesController < ApplicationController
   end
 
   def facts
-    @clients = money_per_client
-    @payments = user_payments
     # clients (per revenue)
+    @clients = money_per_client
+
     # total revenue (per month/per year)
+    @payments = user_payments
+
+    # projected revenue (real payments)
+    # projected revenue (paid and not paid)
+
     # most productive work
     # most reliable clients
-    # projected revenue (real payments)
-    # projected revenue (imagined monthly)
   end
 
   private
