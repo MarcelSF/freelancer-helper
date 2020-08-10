@@ -8,13 +8,31 @@ class PagesController < ApplicationController
   end
 
   def facts
-    @payments = policy_scope(Payment)
-    @clients = current_user.clients
-    # top clients (per revenue)
+    # clients (per revenue)
+    @clients = money_per_client
+
     # total revenue (per month/per year)
+    @payments = user_payments
+
+    # projected revenue (real payments)
+    # projected revenue (paid and not paid)
+
     # most productive work
     # most reliable clients
-    # projected revenue (real payments)
-    # projected revenue (imagined monthly)
+  end
+
+  private
+
+  def money_per_client
+    clients = Client.where(user: current_user)
+    clients_hash = {}
+    clients.each do |client|
+      clients_hash[client.name] = client.payments.sum("value")
+    end
+    clients_hash
+  end
+
+  def user_payments
+    Payment.joins(project: {client: :user}).where(users: {id: current_user.id}).group_by_month(:created_at).sum(:value)
   end
 end

@@ -1,6 +1,8 @@
 class PaymentsController < ApplicationController
+  before_action :skip_authorization, only: :index
   def index
-    @payments = policy_scope(Payment)
+    @payments = policy_scope(Payment).joins(project: {client: :user}).where(users: {id: current_user.id}).order(created_at: :desc).includes(:project)
+    @chart_payments = policy_scope(Payment).joins(project: {client: :user}).where(users: {id: current_user.id}).group_by_month(:created_at).sum(:value)
   end
 
   def show

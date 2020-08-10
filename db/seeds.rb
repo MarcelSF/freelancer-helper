@@ -16,11 +16,25 @@ User.destroy_all
 user = User.new(email: 'teste@gmail.com', password: '123456')
 user.save
 
-client = Client.new(user: user, name: 'Le Wagon', bio: 'A super cool Bootcamp')
-client.save
+thais = User.new(email: 'tsbpaiva@gmail.com', password: 'loviners', user_name: 'redhead')
+thais.save
 
-project = Project.new(client: client, name: 'Lectures', description: "Just doing some lectures")
-project.save
+keywords = Client.new(user: thais name: 'Key Words', bio: 'Awesome translation company')
+keywords.save
+
+locsmiths = Client.new(user: thais name: 'Locsmiths', bio: 'European Translation Company')
+locsmiths.save
+
+
+destiny = Project.new(client: client, name: 'Lectures', description: "Just doing some lectures")
+destiny.save
+
+wow = Project.new(client: client, name: 'Lectures', description: "Just doing some lectures")
+wow.save
+
+tlou = Project.new(client: client, name: 'Lectures', description: "Just doing some lectures")
+tlou.save
+
 
 5.times do
   Payment.create(

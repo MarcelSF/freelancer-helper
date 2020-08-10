@@ -1,3 +1,8 @@
 <h2>Testing Chartkick</h2>
-<%= bar_chart @payments.group_by {|x| x.project.client }.sum {|x| x.value}%>
-<%=  %>
+
+<p>Amount per client</p>
+<%= pie_chart @clients %>
+
+<p>Amount per month</p>
+<%= line_chart @payments %>
+
