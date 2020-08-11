@@ -1,8 +1,11 @@
-<h2>Testing Chartkick</h2>
+<div class='container'>
+  <h1>Here your critical information!</h1>
+  <div class='justify-content-center'>
+    <p >Amount per client</p>
+    <%= pie_chart @clients %>
 
-<p>Amount per client</p>
-<%= pie_chart @clients %>
-
-<p>Amount per month</p>
-<%= line_chart @payments %>
+    <p>Amount per month</p>
+    <%= line_chart @payments %>
+  </div>
+</div>
 
