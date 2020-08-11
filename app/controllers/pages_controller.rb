@@ -33,6 +33,6 @@ class PagesController < ApplicationController
   end
 
   def user_payments
-    Payment.joins(project: {client: :user}).where(users: {id: current_user.id}).group_by_month(:created_at).sum(:value)
+    Payment.joins(project: {client: :user}).where(users: {id: current_user.id}).group_by_month(:date_of_payment).sum(:value)
   end
 end
