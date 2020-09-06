@@ -19,10 +19,10 @@ user.save
 thais = User.new(email: 'tsbpaiva@gmail.com', password: 'loviners', user_name: 'redhead')
 thais.save
 
-keywords = Client.new(user: thais name: 'Keywords', bio: 'Awesome translation company')
+keywords = Client.new(user: thais, name: 'Keywords', bio: 'Awesome translation company')
 keywords.save
 
-locsmiths = Client.new(user: thais name: 'Locsmiths', bio: 'European Translation Company')
+locsmiths = Client.new(user: thais, name: 'Locsmiths', bio: 'European Translation Company')
 locsmiths.save
 
 
