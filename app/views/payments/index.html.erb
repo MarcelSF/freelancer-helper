@@ -1,10 +1,10 @@
 <div class="container">
   <h1>Welcome back, <%= current_user.email  %></h1>
 
-  <div class="payments-div container">
-    <% @payments.each do |payment|%>
-      <%= render 'components/payment_card', payment: payment  %>
-    <% end %>
-  </div>
   <%= line_chart @chart_payments %>
+  <div class="payments-index container">
+    <div class="payments-div">
+      <%= render partial: 'payment', collection: @payments %>
+    </div>
+  </div>
 </div>
