@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Welcome back, <%= current_user.email  %></h1>
-
+  <h1>Your payment history, <%= current_user.email  %></h1>
+  <h3>Yearly Earnings: $<%= @yearly_earnings %> </h3>
   <%= line_chart @chart_payments %>
   <div class="payments-index container">
     <div class="payments-grid mb-3">

@@ -2,11 +2,13 @@
   <div class="payment-card">
     <div class="payment-infos">
       <div class="payment-card-info">
-        <h5>Number: <span class="info"><%= payment.id  %></span></h5>
+        <div class="d-flex justify-content-between mb-1">
+          <h5>Number: <span class="info"><%= payment.id  %></span></h5>
+          <h5><%= payment.paid ? "✅ Paid" : "🔴 Not paid" %></h5>
+        </div>
         <h5>Payment from: <span class="info-client"><%= payment.project.client.name %></span></h5>
         <h5>Project: <span class="info-project"><%=  payment.project.name%></span></h5>
         <h5>Due date: <span class="info"><%= payment.date_of_payment %></span></h5>
-        <h5><%= payment.paid ? "✅ Paid" : "🔴 Not paid" %></h5>
         <h5 class="payment-value">Total: <span class="info">$<%= payment.value %></span></h5>
       </div>
     </div>

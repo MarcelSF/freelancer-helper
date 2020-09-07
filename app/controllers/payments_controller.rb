@@ -3,6 +3,8 @@ class PaymentsController < ApplicationController
   def index
     @payments = policy_scope(Payment).joins(project: {client: :user}).where(users: {id: current_user.id}).order(created_at: :desc).includes(:project)
     @chart_payments = policy_scope(Payment).group_by_day(:created_at).sum(:value)
+    @yearly_earnings = user_yearly_earnings
+    raise
   end
 
   def show
@@ -26,5 +28,9 @@ class PaymentsController < ApplicationController
 
   def payment_params
     params.require(:payment).permit(:notes, :project_id, :value, :tax_discount, :paid, :date_of_payment)
+  end
+
+  def user_yearly_earnings
+    policy_scope(Payment).where('extract(year from payments.created_at) = ?', Time.now.year).sum(:value)
   end
 end
