@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :skip_authorization, only: :index
   def index
     @payments = policy_scope(Payment).order(created_at: :desc).includes(:project)
-    @chart_payments = Payment.all.group_by_day(:created_at).sum(:value)
+    @chart_payments = policy_scope(Payment).group_by_day(:date_of_payment).sum(:value)
     @yearly_earnings = user_yearly_earnings
   end
 
