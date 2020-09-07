@@ -6,8 +6,8 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id]).includes(:payments)
-    authorize @project
+    @payment = Payment.find(params[:id])
+    authorize @payment
   end
 
   def new

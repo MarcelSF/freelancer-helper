@@ -1,12 +1,14 @@
-<div class="payment-card">
-  <div class="payment-infos my-5">
-    <div class="payment-card-info">
-      <h5>Number: <%= payment.id  %></h5>
-      <h5>Payment from: <%= payment.project.client.name %></h5>
-      <h5>Project: <%=  payment.project.name%></h5>
-      <h5>Due date: <%= payment.date_of_payment %></h5>
-      <h5><%= payment.paid ? "✅ Paid" : "🔴 Not paid" %></h5>
-      <h5 class="payment-value">Total: $<%= payment.value %></h5>
+<%= link_to(payment) do %>
+  <div class="payment-card">
+    <div class="payment-infos">
+      <div class="payment-card-info">
+        <h5>Number: <span class="info"><%= payment.id  %></span></h5>
+        <h5>Payment from: <span class="info-client"><%= payment.project.client.name %></span></h5>
+        <h5>Project: <span class="info-project"><%=  payment.project.name%></span></h5>
+        <h5>Due date: <span class="info"><%= payment.date_of_payment %></span></h5>
+        <h5><%= payment.paid ? "✅ Paid" : "🔴 Not paid" %></h5>
+        <h5 class="payment-value">Total: <span class="info">$<%= payment.value %></span></h5>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

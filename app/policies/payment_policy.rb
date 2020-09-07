@@ -12,4 +12,8 @@ class PaymentPolicy < ApplicationPolicy
   def create?
     new?
   end
+
+  def show?
+    user == record.project.client.user
+  end
 end
