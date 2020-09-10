@@ -1,9 +1,11 @@
 // Specific CSS for your home-page -> Banner and Hero
 .banner {
+  display: flex;
+  align-content: center;
   background-size: cover;
-  background-position: 10% 0;
+  background-position: center;
   padding: 150px 0;
-  height: 90vh;
+  height: 92vh;
 }
 
 .banner-content {
@@ -14,7 +16,7 @@
 }
 
 .banner h1 {
-  margin-bottom: 16px;
+  margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
@@ -24,10 +26,14 @@
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: .9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .banner .btn {
-  color: white
+  color: $blue;
+  padding: 16px;
+  background-color: rgba(255,255,255, 0.8);
+  border: 1px solid $blue;
+  border-radius: 5px;
 }
