@@ -3,9 +3,11 @@
     <div class="client-infos">
       <div class="client-card-info">
         <div class="d-flex justify-content-between mb-1 client-upper">
-          <h5>Name: <span class="info"><%= client.name  %></span></h5>
+          <h5><span class="client-name-info"><%= client.name  %></span></h5>
+
         </div>
-        <h5>client from: <span class="info-client"><%= client %></span></h5>
+        <h5><strong>Client since:</strong> <span class="info-client"><%= client.created_at.strftime("%b %Y") %></span></h5>
+        <h5>Bio:</h5>
       </div>
     </div>
   </div>

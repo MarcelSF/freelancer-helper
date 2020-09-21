@@ -1,0 +1,41 @@
+.client-card {
+  border: 1px solid gray;
+  padding: 16px;
+  margin: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  background-color: white;
+  color: black;
+    &:hover {
+    text-decoration: none;
+    box-shadow: 2px 2px 8px rgba(0,0,0,1);
+  }
+}
+
+.client-name-info {
+  color: $gray
+}
+
+.client-upper {
+  border-bottom: 1px solid black;
+}
+
+.clients-index a {
+  text-decoration:none !important;
+}
+
+
+.client-card-info {
+  h5 {
+    color: black;
+    font-weight: bold;
+  }
+  .info{
+    color: gray;
+  }
+  .info-project{
+    color: $orange;
+  }
+  .info-client{
+    color: $blue;
+  }
+}
