@@ -5,6 +5,11 @@ class ClientPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    record.user = user
+
+  end
+
   def new?
     true
   end
