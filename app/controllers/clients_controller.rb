@@ -8,6 +8,11 @@ class ClientsController < ApplicationController
     authorize @client
   end
 
+  def show
+    @client = Client.includes(:payments).find(params[:id])
+    authorize @client
+  end
+
   def create
     @client = Client.new(client_params)
     @client.user = current_user
