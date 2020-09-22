@@ -1,6 +1,7 @@
 <div class="container">
   <h3 class="my-3">Your payment history, <%= current_user.email  %></h3>
   <h3 class="my-3">Yearly earnings: $<%= @yearly_earnings %> </h3>
+  <%= link_to 'Add Payment', new_payment_path, class: 'btn btn-primary mb-3' %>
   <%= line_chart @chart_payments %>
   <div class="payments-index container">
     <div class="payments-grid my-3">

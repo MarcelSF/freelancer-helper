@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   def index
     @clients = policy_scope(Client)
+    #@top_clients -> show a top 5 list of clients and their payment total
   end
 
   def new
@@ -29,4 +30,8 @@ class ClientsController < ApplicationController
   def client_params
     params.require(:client).permit(:name, :bio)
   end
+
+  # def clients_price_hash
+
+  # end
 end
