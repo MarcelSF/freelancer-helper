@@ -1,0 +1,41 @@
+.card {
+  border: 1px solid gray;
+  padding: 16px;
+  margin: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  background-color: white;
+  color: black;
+    &:hover {
+    text-decoration: none;
+    box-shadow: 2px 2px 8px rgba(0,0,0,1);
+  }
+}
+
+.card-name-info {
+  color: $gray
+}
+
+.card-upper {
+  border-bottom: 1px solid black;
+}
+
+.card-index a {
+  text-decoration:none !important;
+}
+
+
+.card-info {
+  h5 {
+    color: black;
+    font-weight: bold;
+  }
+  .info{
+    color: gray;
+  }
+  .info-orange{
+    color: $orange;
+  }
+  .info-blue{
+    color: $blue;
+  }
+}

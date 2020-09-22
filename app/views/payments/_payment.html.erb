@@ -1,13 +1,13 @@
 <%= link_to payment, class: "payment-link" do %>
-  <div class="payment-card">
+  <div class="card">
     <div class="payment-infos">
-      <div class="payment-card-info">
-        <div class="d-flex justify-content-between mb-1 payment-upper">
+      <div class="card-info">
+        <div class="d-flex justify-content-between mb-1 card-upper">
           <h5>Number: <span class="info"><%= payment.id  %></span></h5>
           <h5><%= payment.paid ? "✅ Paid" : "🔴 Not paid" %></h5>
         </div>
-        <h5>Payment from: <span class="info-client"><%= payment.project.client.name %></span></h5>
-        <h5>Project: <span class="info-project"><%=  payment.project.name%></span></h5>
+        <h5>Payment from: <span class="info-blue"><%= payment.project.client.name %></span></h5>
+        <h5>Project: <span class="info-orange"><%=  payment.project.name%></span></h5>
         <h5>Due date: <span class="info"><%= payment.date_of_payment %></span></h5>
         <h5 class="payment-value">Total: <span class="info">$<%= payment.value %></span></h5>
       </div>
