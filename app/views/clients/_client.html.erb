@@ -1,9 +1,9 @@
 <%= link_to client, class: "client-link" do %>
-  <div class="client-card">
+  <div class="card">
     <div class="client-infos">
-      <div class="client-card-info">
-        <div class="d-flex justify-content-between mb-1 client-upper">
-          <h5><span class="client-name-info"><%= client.name  %></span></h5>
+      <div class="card-info">
+        <div class="d-flex justify-content-between mb-1 card-upper">
+          <h5><span class="card-name-info"><%= client.name  %></span></h5>
 
         </div>
         <h5><strong>Client since:</strong> <span class="info-client"><%= client.created_at.strftime("%b %Y") %></span></h5>
