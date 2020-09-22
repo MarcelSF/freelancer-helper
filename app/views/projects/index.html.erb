@@ -1,5 +1,7 @@
 <div class="container">
-  <%= @projects.each do |project|%>
-    <%= project.name %>
-  <% end %>
+  <div class="payments-index container">
+    <div class="payments-grid my-3">
+      <%= render partial: 'project', collection: @projects %>
+    </div>
+  </div>
 </div>

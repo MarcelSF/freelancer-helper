@@ -1,0 +1,13 @@
+<%= link_to project, class: "payment-link" do %>
+  <div class="payment-card">
+    <div class="payment-infos">
+      <div class="payment-card-info">
+        <div class="d-flex justify-content-between mb-1 payment-upper">
+          <h5>Name: <span class="info"><%= project.name %></span></h5>
+        </div>
+        <h5>Payment from: <span class="info-client"><%= project.client.name %></span></h5>
+        <h5>Project: <span class="info-project"><%= project.name%></span></h5>
+      </div>
+    </div>
+  </div>
+<% end %>

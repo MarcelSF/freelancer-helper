@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
-
+  skip_after_action :verify_policy_scoped, :only => :index
   def index
     @projects = current_user.projects.includes(:payments)
-    authorize @projects
   end
 
   def show
