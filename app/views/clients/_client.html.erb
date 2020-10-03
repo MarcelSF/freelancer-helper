@@ -2,12 +2,16 @@
   <div class="card">
     <div class="client-infos">
       <div class="card-info">
-        <div class="d-flex justify-content-between mb-1 card-upper">
+        <div class="d-flex justify-content-around align-items-center mb-2 py-1 card-upper">
           <h5><span class="card-name-info"><%= client.name  %></span></h5>
-
+          <% if client.avatar.attached?%>
+            <%= cl_image_tag client.avatar.key, height: 50, width: 50, crop: :fill if client.avatar.attached?%>
+          <% else %>
+            <i class="fas fa-user-astronaut"></i>
+          <% end %>
         </div>
         <h5><strong>Client since:</strong> <span class="info-client"><%= client.created_at.strftime("%b %Y") %></span></h5>
-        <h5>Info:</h5>
+        <h5>Info: <%= client.bio %></h5>
       </div>
     </div>
   </div>

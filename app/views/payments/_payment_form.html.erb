@@ -1,11 +1,17 @@
-<%= simple_form_for @payment do |f| %>
-  <%= f.input :value, label: "Enter the total amount" %>
-  <%= f.input :tax_discount, label: "Enter the tax discount" %>
-  <%= f.input :project_id, collection: current_user.projects,include_blank: false, include_hidden: false, label: "Choose your project" %>
-  <%= f.input :date_of_payment, as: :date, start_year: Date.today.year - 10,
-                              end_year: Date.today.year + 12,
-                              order: [:day, :month, :year] %>
-  <%= f.input :notes, label: "Any additional information?" %>
-  <%= f.input :paid, input_html: { 'data-toggle': "toggle" } %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
+<div class="my-3">
+  <%= simple_form_for @payment do |f| %>
+    <%= f.input :value, label: "Enter the total amount" %>
+    <%= f.input :tax_discount, label: "Enter the tax discount" %>
+    <%= f.input :project_id, collection: current_user.projects,include_blank: false, include_hidden: false, label: "Choose your project" %>
+    <%= f.input :date_of_payment, as: :date, start_year: Date.today.year - 10,
+                                end_year: Date.today.year + 12,
+                                order: [:day, :month, :year] %>
+    <%= f.input :notes, label: "Any additional information?" %>
+    <%= f.input :paid, input_html: { 'data-toggle': "toggle" } %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+
+  <% end %>
+  <% unless @payment.new_record? %>
+    <%= link_to 'Remove Payment', payment_path(@payment), method: :delete, data: {confirm: 'Are you sure you want to remove this payment?'}, class: 'btn btn-danger my-3' %>
+  <% end %>
+</div>
