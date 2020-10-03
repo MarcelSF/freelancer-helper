@@ -6,9 +6,20 @@ class PaymentsController < ApplicationController
     @yearly_earnings = user_yearly_earnings
   end
 
-  def show
+  def edit
     @payment = Payment.find(params[:id])
     authorize @payment
+  end
+
+  def update
+    @payment = Payment.find(params[:id])
+    @payment.update(payment_params)
+    authorize @payment
+    if @payment.save
+      redirect_to payments_path
+    else
+      render :edit
+    end
   end
 
   def new

@@ -13,6 +13,14 @@ class PaymentPolicy < ApplicationPolicy
     new?
   end
 
+  def edit?
+    user == record.project.client.user
+  end
+
+  def update?
+    edit?
+  end
+
   def show?
     user == record.project.client.user
   end

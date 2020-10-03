@@ -6,6 +6,6 @@
                               end_year: Date.today.year + 12,
                               order: [:day, :month, :year] %>
   <%= f.input :notes, label: "Any additional information?" %>
-  <%= f.input :paid %>
-  <%= f.button :submit %>
+  <%= f.input :paid, input_html: { 'data-toggle': "toggle" } %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
