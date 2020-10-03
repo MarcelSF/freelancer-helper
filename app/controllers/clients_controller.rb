@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   def index
     @clients = policy_scope(Client)
+
     #@top_clients -> show a top 5 list of clients and their payment total
   end
 
@@ -10,7 +11,8 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.includes(:payments).find(params[:id])
+    @client = Client.find(params[:id])
+    @payments = @client.payments
     authorize @client
   end
 
