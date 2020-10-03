@@ -1,8 +1,14 @@
 <div class="container">
-  <%= simple_form_for @client do |f| %>
-    <%= f.input :name, label: 'What is your client\'s name?'%>
-    <%= f.input :bio, label: 'Client Info' %>
-     <%= f.input :avatar, as: :file %>
-    <%= f.button :submit, 'Add client', class: 'btn btn-primary' %>
-  <% end %>
+  <div class="my-3">
+    <%= simple_form_for @client do |f| %>
+      <%= f.input :name, label: 'What is your client\'s name?'%>
+      <%= f.input :bio, label: 'Client Info' %>
+      <%= f.input :avatar, as: :file %>
+      <% if @client.new_record? %>
+        <%= f.button :submit, 'Add client', class: 'btn btn-primary' %>
+      <% else %>
+        <%= f.button :submit, 'Update client', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :set_client, only: [:edit, :update, :show]
   def index
     @clients = policy_scope(Client)
 
@@ -11,7 +12,6 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
     @payments = @client.payments
     authorize @client
   end
@@ -27,10 +27,28 @@ class ClientsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @client
+  end
+
+  def update
+    @client.update(client_params)
+    authorize @client
+    if @client.save
+      redirect_to client_path(@client)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def client_params
     params.require(:client).permit(:name, :bio, :avatar)
+  end
+
+  def set_client
+    @client = Client.find(params[:id])
   end
 
   # def clients_price_hash
