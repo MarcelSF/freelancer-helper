@@ -24,4 +24,8 @@ class PaymentPolicy < ApplicationPolicy
   def show?
     user == record.project.client.user
   end
+
+  def destroy?
+    edit?
+  end
 end

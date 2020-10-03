@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :skip_authorization, only: :index
+  before_action :set_payment, only: [:edit, :update, :destroy]
   def index
     @payments = policy_scope(Payment).order(created_at: :desc).includes(:project)
     @chart_payments = policy_scope(Payment).group_by_day(:date_of_payment).sum(:value)
@@ -7,12 +8,10 @@ class PaymentsController < ApplicationController
   end
 
   def edit
-    @payment = Payment.find(params[:id])
     authorize @payment
   end
 
   def update
-    @payment = Payment.find(params[:id])
     @payment.update(payment_params)
     authorize @payment
     if @payment.save
@@ -34,7 +33,17 @@ class PaymentsController < ApplicationController
     redirect_to payments_path
   end
 
+  def destroy
+    authorize @payment
+    @payment.delete
+    redirect_to payments_path
+  end
+
   private
+
+  def set_payment
+    @payment = Payment.find(params[:id])
+  end
 
   def payment_params
     params.require(:payment).permit(:notes, :project_id, :value, :tax_discount, :paid, :date_of_payment)
